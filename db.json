@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "category": "Book",
+      "skuValue": "122",
+      "nameValue": "1",
+      "priceValue": "1",
+      "bookWeightValue": "1",
+      "id": 8
+    }
+  ]
+}

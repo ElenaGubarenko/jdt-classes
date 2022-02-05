@@ -1,0 +1,85 @@
+.Header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-items: space-between; */
+}
+
+.Header::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 10px;
+}
+
+.Title {
+  margin-right: auto;
+}
+
+.Add {
+  margin-right: 15px;
+}
+
+/* .ButtonDelete {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
+  background-color: inherit;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+} */
+
+.ButtonDelete {
+  background-color: inherit;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.ProductsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ProductCard {
+  padding: 5px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.CardUl {
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.Checkbox {
+  margin-right: 180px;
+}
