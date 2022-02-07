@@ -6,6 +6,8 @@ import selectors from '../../Redux/selectors/selectors'
 import newApi from '../../Api/Api'
 import { Component } from 'react';
 import { connect } from 'react-redux';
+// import newSQLApi from '../../server/index';
+// const newSQLApi = require('../../server/index')
 
 class AddProductPage extends Component {
   state = {
@@ -22,6 +24,10 @@ class AddProductPage extends Component {
     validationOk: false,
     errorMessage: '',
   }
+
+//   componentDidMount() {
+//   // newSQLApi.connectDataBase()
+// }
 
   componentDidUpdate(_, prevState) {
     if (prevState.skuValue !== this.state.skuValue) {
@@ -93,7 +99,7 @@ class AddProductPage extends Component {
     let productCard
 
     if (this.state.selectValue === 'DVD' && !this.state.productExist && this.state.validationOk) {
-            
+     
       productCard = {
         category: this.state.selectValue,
         skuValue: this.state.skuValue,
@@ -101,12 +107,18 @@ class AddProductPage extends Component {
         priceValue: this.state.priceValue,
         dvdSizeValue: this.state.dvdSizeValue
       }
+
+      // productCard = [
+      //   this.state.skuValue,this.state.nameValue,this.state.priceValue, this.state.dvdSizeValue
+      // ]
       
       newApi.postProduct(productCard)
+      // newSQLApi.insertProducts(productCard)
       this.props.addStatusSuccess()
     }
 
     if (this.state.selectValue === 'Book' && !this.state.productExist && this.state.validationOk) {
+
       productCard = {
         category: this.state.selectValue,
         skuValue: this.state.skuValue,
@@ -114,7 +126,12 @@ class AddProductPage extends Component {
         priceValue: this.state.priceValue, bookWeightValue: this.state.bookWeightValue
       }
   
+  //  productCard = [
+  //       this.state.skuValue,this.state.nameValue,this.state.priceValue,null, this.state.bookWeightValue
+  //     ]
+
       newApi.postProduct(productCard)
+      //  newSQLApi.insertProducts(productCard)
       this.props.addStatusSuccess()
 
     }
@@ -129,8 +146,20 @@ class AddProductPage extends Component {
         furnitureWidthValue: this.state.furnitureWidthValue,
         furnitureLengthValue: this.state.furnitureLengthValue
       }
+      
+      // productCard = [
+      //   this.state.skuValue,
+      //   this.state.nameValue,
+      //   this.state.priceValue,
+      //   null,
+      //   null,
+      //   this.state.furnitureHeightValue,
+      //   this.state.furnitureWidthValue,
+      //   this.state.furnitureLengthValue
+      // ]
 
       newApi.postProduct(productCard)
+      //  newSQLApi.insertProducts(productCard)
       this.props.addStatusSuccess()
     }
 

@@ -4,8 +4,10 @@ import routes from '../../Routes/routes'
 import selectors from '../../Redux/selectors/selectors'
 import operations from '../../Redux/operations/operations';
 import newApi from '../../Api/Api'
+// import newSQLApi from '../../server';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+// const newSQLApi = require('../../server/index');
 
 class Homepage extends Component {
   state = { 
@@ -17,7 +19,7 @@ class Homepage extends Component {
   this.check()
   }
 
-  componentDidMount() {
+componentDidMount() {
     // this.check()
     newApi.fetchProducts().then(result => {
       if (result.length !== 0) {
@@ -28,6 +30,7 @@ class Homepage extends Component {
       }
     })
   }
+  
 
   check = () => {
    if (this.props.addStatus) {
@@ -80,9 +83,9 @@ class Homepage extends Component {
       <button className={styles.ButtonDelete} onClick={this.massDelete} type='button' id='delete-product-btn'>MASS DELETE</button>
       </div>
     </div>
-      <div className={styles.ProductsList}> 
+      <div className={styles.ProductsList}>
         {
-          this.state.updatedProducts ?           
+          this.state.updatedProducts ?
         this.state.updatedProducts.map(product => {
           return <div key={product.id} id={product.id} className={styles.ProductCard}>
             <div  className={styles.Checkbox} >
@@ -94,24 +97,25 @@ class Homepage extends Component {
           <ul className={styles.CardUl}>
                       <li key={product.skuValue}>{ product.skuValue}</li>
             <li key={ product.nameValue}>{ product.nameValue}</li>
-            <li key={product.priceValue}>{product.priceValue} $</li> 
+            <li key={product.priceValue}>{product.priceValue} $</li>
             {product.category === 'DVD' ?
               <li key={ product.dvdSizeValue}>Size: { product.dvdSizeValue}</li> :null
-            } 
+            }
              {product.category === 'Book' ?
               <li key={ product.bookWeightValue}>Weight: { product.bookWeightValue}</li> :null
-            } 
+            }
             {product.category === 'Furniture' ?
               <li key={ product.furnitureLengthValue}>Dimension: {`${product.furnitureLengthValue}x${product.furnitureWidthValue}x${product.furnitureHeightValue}`}</li> :null
-            } 
+            }
             </ul>
-            </div>       
-        } 
+            </div>
+        }
             ) :
-            null     
+            null
 }
        </div>
     </>
+    
   )
 }    
   }

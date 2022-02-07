@@ -5,26 +5,24 @@ import Container from "./Components/Container"
 import Homepage from './Components/Homepage'
 import AddProductPage from './Components/AddProductPage'
 import Footer from './Components/Footer'
-import { useEffect, useState } from "react"
-import selectors from './Redux/selectors/selectors'
-import { useSelector, useDispatch } from 'react-redux';
-import Api from './Api/Api'
-import operations from './Redux/operations/operations';
+// import { useEffect, useState } from "react"
+// import selectors from './Redux/selectors/selectors'
+// import { useSelector, useDispatch } from 'react-redux';
+// import Api from './Api/Api'
+// import operations from './Redux/operations/operations';
+// import newSQLApi from './server';
+// const newSQLApi = require('./server/index')
 
 function App() {
-  // const products = useSelector(selectors.products)
-  // const dispatch = useDispatch()
+
+// try {
+//   // newSQLApi.connectDataBase()
   
-  // useEffect(() => { 
-  //   Api.fetchProducts().then(result => {
-  //     console.log("result", result)
-  //     if (result.length !== 0) {
-  //       // setDataLength(data)
-  //       dispatch(operations.addProductCard(result))
-  //       // setUpdatedProducts(result)
-  //     }
-  //   })
-  // }, []) 
+// newSQLApi.getAllProducts().then(result=>console.log(result))
+// //  console.log(sqlResult)
+// } catch (e) {
+//   console.log(e)
+// }
 
   return (
     <>
