@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // const URL = 'http://localhost:3003'
-const URL = 'https://secret-scrubland-05141.herokuapp.com'
-
+// const URL = 'https://secret-scrubland-05141.herokuapp.com'
+const URL = 'https://scandiwebtestassignment.netlify.app'
 
 class Api extends Component {
 
