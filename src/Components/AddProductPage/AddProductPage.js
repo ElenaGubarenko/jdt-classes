@@ -100,17 +100,25 @@ class AddProductPage extends Component {
 
     if (this.state.selectValue === 'DVD' && !this.state.productExist && this.state.validationOk) {
      
-      productCard = {
-        category: this.state.selectValue,
-        skuValue: this.state.skuValue,
-        nameValue: this.state.nameValue,
-        priceValue: this.state.priceValue,
-        dvdSizeValue: this.state.dvdSizeValue
-      }
+      // productCard = {
+      //   category: this.state.selectValue,
+      //   skuValue: this.state.skuValue,
+      //   nameValue: this.state.nameValue,
+      //   priceValue: this.state.priceValue,
+      //   dvdSizeValue: this.state.dvdSizeValue
+      // }
 
-      // productCard = [
-      //   this.state.skuValue,this.state.nameValue,this.state.priceValue, this.state.dvdSizeValue
-      // ]
+      productCard = [
+        [this.state.skuValue,
+          this.state.nameValue,
+          this.state.priceValue,
+          this.state.dvdSizeValue,
+          null,
+          null,
+          null,
+          null,
+        this.state.selectValue]
+      ]
       
       newApi.postProduct(productCard)
       // newSQLApi.insertProducts(productCard)
@@ -119,16 +127,25 @@ class AddProductPage extends Component {
 
     if (this.state.selectValue === 'Book' && !this.state.productExist && this.state.validationOk) {
 
-      productCard = {
-        category: this.state.selectValue,
-        skuValue: this.state.skuValue,
-        nameValue: this.state.nameValue,
-        priceValue: this.state.priceValue, bookWeightValue: this.state.bookWeightValue
-      }
+      // productCard = {
+      //   category: this.state.selectValue,
+      //   skuValue: this.state.skuValue,
+      //   nameValue: this.state.nameValue,
+      //   priceValue: this.state.priceValue, bookWeightValue: this.state.bookWeightValue
+      // }
   
-  //  productCard = [
-  //       this.state.skuValue,this.state.nameValue,this.state.priceValue,null, this.state.bookWeightValue
-  //     ]
+      productCard = [
+        [this.state.skuValue,
+        this.state.nameValue,
+        this.state.priceValue,
+        null,
+        this.state.bookWeightValue,
+        null,
+        null,
+          null,
+        this.state.selectValue]
+      ]
+      
 
       newApi.postProduct(productCard)
       //  newSQLApi.insertProducts(productCard)
@@ -138,25 +155,26 @@ class AddProductPage extends Component {
 
     if (this.state.selectValue === 'Furniture' && !this.state.productExist && this.state.validationOk) {
 
-      productCard = {
-        category: this.state.selectValue,
-        skuValue: this.state.skuValue,
-        nameValue: this.state.nameValue,
-        priceValue: this.state.priceValue, furnitureHeightValue: this.state.furnitureHeightValue,
-        furnitureWidthValue: this.state.furnitureWidthValue,
-        furnitureLengthValue: this.state.furnitureLengthValue
-      }
+      // productCard = {
+      //   category: this.state.selectValue,
+      //   skuValue: this.state.skuValue,
+      //   nameValue: this.state.nameValue,
+      //   priceValue: this.state.priceValue, furnitureHeightValue: this.state.furnitureHeightValue,
+      //   furnitureWidthValue: this.state.furnitureWidthValue,
+      //   furnitureLengthValue: this.state.furnitureLengthValue
+      // }
       
-      // productCard = [
-      //   this.state.skuValue,
-      //   this.state.nameValue,
-      //   this.state.priceValue,
-      //   null,
-      //   null,
-      //   this.state.furnitureHeightValue,
-      //   this.state.furnitureWidthValue,
-      //   this.state.furnitureLengthValue
-      // ]
+      productCard = [
+        [this.state.skuValue,
+        this.state.nameValue,
+        this.state.priceValue,
+        null,
+        null,
+        this.state.furnitureHeightValue,
+        this.state.furnitureWidthValue,
+          this.state.furnitureLengthValue,
+        this.state.selectValue]
+      ]
 
       newApi.postProduct(productCard)
       //  newSQLApi.insertProducts(productCard)

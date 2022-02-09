@@ -12,7 +12,7 @@ class Api extends Component {
   }
 
    fetchProducts = ()=> {
-  return this.fetchHandling(`${URL}/products`)
+  return this.fetchHandling(`${URL}/`)
   }
 
    postProduct = (product) => {
@@ -24,17 +24,19 @@ class Api extends Component {
        body: JSON.stringify(product)
   }
      
-  return this.fetchHandling(`${URL}/products`, config)
+  return this.fetchHandling(`${URL}/`, config)
   }
 
-   deleteProductCard = (id) => {
+
+  deleteProductCard = (productId) => {
+    // console.log(productId)
    const config = {
     method: 'DELETE',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
   }
-return this.fetchHandling(`${URL}/products/${id}`, config)
+return this.fetchHandling(`${URL}/?id=${productId}`, config)
 }
 
 }

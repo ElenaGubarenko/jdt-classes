@@ -21,12 +21,13 @@ class Homepage extends Component {
 
 componentDidMount() {
     // this.check()
-    newApi.fetchProducts().then(result => {
-      if (result.length !== 0) {
+  newApi.fetchProducts().then(result => {
+      // console.log(result.data.result)
+      if (result.data.result !== 0) {
         this.setState({
-          updatedProducts: [...result],
+          updatedProducts: [...result.data.result],
         })
-      this.props.addProductCard(result)
+      this.props.addProductCard(result.data.result)
       }
     })
   }
@@ -36,11 +37,11 @@ componentDidMount() {
    if (this.props.addStatus) {
    newApi.fetchProducts().then(result => {
       // console.log("result", result)
-     if (result.length !== 0) {
+     if (result.data.result !== 0) {
        this.setState({
-         updatedProducts: [...result]
+         updatedProducts: [...result.data.result]
        }) 
-       this.props.addProductCard(result)
+       this.props.addProductCard(result.data.result)
        this.props.addStatusError()
      } 
     })
@@ -48,7 +49,7 @@ componentDidMount() {
   }
   
   
-   handleCheckbox = (e) => {
+  handleCheckbox = (e) => {
      if (e.target.checked) {     
        this.setState({
          checkboxesToDelete: [...this.state.checkboxesToDelete, e.target.id]
@@ -66,9 +67,10 @@ componentDidMount() {
 
 
    massDelete = () => {
-    this.state.checkboxesToDelete.map(id => 
-      newApi.deleteProductCard(id)
-     )
+    // this.state.checkboxesToDelete.map(id =>
+      // newApi.deleteProductCard(id)
+    //  )
+     newApi.deleteProductCard(this.state.checkboxesToDelete)
      this.props.addStatusSuccess()
   }
 
@@ -87,10 +89,10 @@ componentDidMount() {
         {
           this.state.updatedProducts ?
         this.state.updatedProducts.map(product => {
-          return <div key={product.id} id={product.id} className={styles.ProductCard}>
+          return <div key={product.productId} id={product.productId} className={styles.ProductCard}>
             <div  className={styles.Checkbox} >
               <input onChange={this.handleCheckbox}
-                id={product.id}
+                id={product.productId}
                 className='.delete-checkbox'
                 type='checkbox'></input>
             </div>
@@ -98,13 +100,13 @@ componentDidMount() {
                       <li key={product.skuValue}>{ product.skuValue}</li>
             <li key={ product.nameValue}>{ product.nameValue}</li>
             <li key={product.priceValue}>{product.priceValue} $</li>
-            {product.category === 'DVD' ?
+            {product.selectValue === 'DVD' ?
               <li key={ product.dvdSizeValue}>Size: { product.dvdSizeValue}</li> :null
             }
-             {product.category === 'Book' ?
+             {product.selectValue === 'Book' ?
               <li key={ product.bookWeightValue}>Weight: { product.bookWeightValue}</li> :null
             }
-            {product.category === 'Furniture' ?
+            {product.selectValue === 'Furniture' ?
               <li key={ product.furnitureLengthValue}>Dimension: {`${product.furnitureLengthValue}x${product.furnitureWidthValue}x${product.furnitureHeightValue}`}</li> :null
             }
             </ul>
